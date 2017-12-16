@@ -1,0 +1,99 @@
+//Based on http://simplegrid.io
+.container {
+  width: 90%;
+  margin: 0 auto 3rem auto;
+
+  @include breakpointUp(sm) {
+    width: 80%;
+  }
+
+  @include breakpointUp(lg) {
+    width: 88%;
+    max-width: 150rem;
+  }
+
+  &--fluid {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+
+    //For some strange reason without this the footer is not perfectly at the bottom
+    margin-bottom: -1px;
+
+    padding-bottom: 4rem;
+    & + & {
+      padding-top: 4rem;
+      @include breakpointUp(lg) {
+        padding-top: 6rem;
+      }
+    }
+
+    &.no-space {
+      padding: 0;
+    }
+  }
+
+  &--no-padding {
+    padding: 0;
+  }
+
+  &--no-margin {
+    margin-bottom: 0;
+  }
+}
+
+.row {
+  width: 100%;
+
+  margin-bottom: 1rem;
+  @include breakpointUp(lg) {
+    margin-bottom: 4rem;
+  }
+
+  &--no-margin {
+    margin-bottom: 0;
+  }
+}
+
+.row [class^="col"] {
+  float: left;
+  margin: 1rem ($gridGutter / 2);
+  min-height: 1rem;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: $gridWidth;
+}
+
+@include breakpointUp(md) {
+  .col-1 { width:($gridWidth / 12) - ($gridGutter * 11 / 12); }
+  .col-2 { width: ($gridWidth / 6) - ($gridGutter * 10 / 12); }
+  .col-3 { width: ($gridWidth / 4) - ($gridGutter * 9 / 12); }
+  .col-4 { width: ($gridWidth / 3) - ($gridGutter * 8 / 12); }
+  .col-5 { width: ($gridWidth / (12 / 5)) - ($gridGutter * 7 / 12); }
+  .col-6 { width: ($gridWidth / 2) - ($gridGutter * 6 / 12); }
+  .col-7 { width: ($gridWidth / (12 / 7)) - ($gridGutter * 5 / 12); }
+  .col-8 { width: ($gridWidth / (12 / 8)) - ($gridGutter * 4 / 12); }
+  .col-9 { width: ($gridWidth / (12 / 9)) - ($gridGutter * 3 / 12); }
+  .col-10 { width: ($gridWidth / (12 / 10)) - ($gridGutter * 2 / 12); }
+  .col-11 { width: ($gridWidth / (12 / 11)) - ($gridGutter * 1 / 12); }
+  .col-12 { width: $gridWidth; }
+}

@@ -1,0 +1,72 @@
+$breakpoints: (
+  xs: 0,
+  sm: 480px, //960 @2x
+  md: 768px, //1536 @2x
+  lg: 1024px, //2048 @2x
+  xl: 1280px, //2560 @2x
+  ul: 1440px //2880 @2x
+) !default;
+
+@function breakpointNext($name, $breakpoints: $breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpointMin($name, $breakpoints: $breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != null, $min, null);
+}
+
+@function breakpointMax($name, $breakpoints: $breakpoints) {
+  $next: breakpointNext($name, $breakpoints);
+  @return if($next, breakpointMin($next, $breakpoints) - .001px, null);
+}
+
+@mixin breakpointUp($name, $breakpoints: $breakpoints) {
+  $min: breakpointMin($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin breakpointDown($name, $breakpoints: $breakpoints) {
+  $max: breakpointMax($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin breakpointOnly($name, $breakpoints: $breakpoints) {
+  @include breakpointUp($name, $breakpoints) {
+    @include breakpointDown($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpointBetween($lower, $upper, $breakpoints: $breakpoints) {
+  @include breakpointUp($lower, $breakpoints) {
+    @include breakpointDown($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2 / 1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}

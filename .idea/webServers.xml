@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4fb1711e-d095-4854-b0f7-586bfed0a391" name="sacharüede.ch" url="http://sacharüede.ch">
+        <fileTransfer host="185.117.169.244" port="21" rootFolder="/httpdocs/koken/storage/themes/srp-theme">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

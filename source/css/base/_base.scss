@@ -1,0 +1,38 @@
+html {
+  box-sizing: border-box;
+  background-color: $bg;
+  color: $text;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-x: hidden;
+  min-width: 310px;
+}
+
+img {
+  //Optimize image rendering on Chrome
+  //https://medium.freecodecamp.org/-898b38a6c0e1
+  image-rendering: -webkit-optimize-contrast;
+}
+
+svg {
+  fill: currentColor;
+}
+.svg-hidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
