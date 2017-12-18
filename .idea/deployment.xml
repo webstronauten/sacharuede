@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="sacharüede.ch">
+  <component name="PublishConfigData" serverName="sacharuede Koken Theme">
     <serverData>
-      <paths name="sacharüede.ch">
+      <paths name="sacharuede Koken Theme">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/httpdocs/koken/storage/themes/sacharuede" local="$PROJECT_DIR$" web="koken/" />
           </mappings>
         </serverdata>
       </paths>
