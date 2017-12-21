@@ -1,3 +1,4 @@
+@import url(css/flexboxgrid.css);
 @import url(css/titles/[$font_title].css);
 @import url(css/headers/[$font_head].css);
 @import url(css/body/[$font_body].css);
@@ -132,20 +133,41 @@ fieldset {
 	margin: 0 0 .5rem
 }
 label {
-	font-size: .875rem;
 	color: $headers_color;
 	cursor: pointer;
 	display: block;
 	font-weight: 400;
-	margin-bottom: .5em;
+	margin-bottom: 9px;
 	text-align: left
 }
+
+.margin-top-s { margin-top:4px; }
+.margin-top-m { margin-top:8px; }
+.margin-top-l { margin-top:12px; }
+.margin-top-xl { margin-top:16px; }
+.margin-top-xxl { margin-top:32px; }
+.margin-right-s { margin-right:4px; }
+.margin-right-m { margin-right:8px; }
+.margin-right-l { margin-right:12px; }
+.margin-right-xl { margin-right:16px; }
+.margin-right-xxl { margin-right:32px; }
+.margin-bottom-s { margin-bottom:4px; }
+.margin-bottom-m { margin-bottom:8px; }
+.margin-bottom-l { margin-bottom:12px; }
+.margin-bottom-xl { margin-bottom:16px; }
+.margin-bottom-xxl { margin-bottom:32px; }
+.margin-left-s { margin-left:4px; }
+.margin-left-m { margin-left:8px; }
+.margin-left-l { margin-left:12px; }
+.margin-left-xl { margin-left:16px; }
+.margin-left-xxl { margin-left:32px; }
+
 .button,
 button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-	font-size: 11px;
+	font-size: 13px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	text-align: center;
@@ -181,13 +203,13 @@ select,
 textarea {
 	display: block;
 	color: $input_color;
-	font-size: 13px;
+	font-size: 15px;
 	font-family: inherit;
 	padding: .5em;
 	height: auto;
 	width: 100%;
 	margin: 0 0 1em;
-	background-color: transparent;
+	background-color: #ffffff;
 	outline: none;
 	border-radius: 0;
 	border: 1px solid $input_border;
@@ -217,7 +239,7 @@ input[type=text]:focus,
 input[type=url]:focus,
 select:focus,
 textarea:focus {
-	color: $headers_color;
+	color: $input_color_active;
 	border-color: $input_border_active;
 	outline: 0
 }
@@ -249,9 +271,6 @@ textarea[rows] {
 textarea {
 	max-width: 100%
 }
-.k-contact-form {
-	width: 60%
-}
 @media only screen and (max-width: 767px) {
 	.k-contact-form {
 		width: 100%
@@ -269,7 +288,7 @@ textarea {
 }
 .k-contact-form-required-field label:after {
 	content: "*";
-	color: red
+	color: #ff7800;
 }
 .k-content-form-processing {
 	opacity: .5
@@ -588,7 +607,6 @@ nav a:hover {
 	text-decoration: none
 }
 nav a.k-nav-current {
-	font-weight: 700;
 	color: $color_nav_current!important
 }
 .k-search input[type=search] {
@@ -996,7 +1014,7 @@ article blockquote {
 .k-content img {
 	max-width: 100%
 }
-.k-content-embed {
+.k-content-embed:not(:first-child) {
 	margin: 2em 0
 }
 article .k-content-text {
@@ -1388,8 +1406,7 @@ body.sidr-open #mob-bttn-row {
 }
 body.k-lens-archive-essays #main_wrap,
 body.k-lens-essay #main_wrap,
-body.k-lens-essays #main_wrap,
-body.k-lens-page #main_wrap {
+body.k-lens-essays #main_wrap {
 	max-width: [$essays_max_col_width]px
 }
 body.k-lens-albums #main_wrap,
@@ -1448,24 +1465,24 @@ body.pos_right.k-lens-essays .main_wrap {
 	width: 100%
 }
 .social {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	margin-bottom: [$col_spacing]px
 }
-.social span.fb {
-	margin-bottom: 5px
+.social > div {
+	margin: 0 8px;
 }
-.social span.fb,
-.social span.tw {
-	display: block
+.social > div:hover {
+	opacity: 0.8;
 }
-.social>span,
-.social iframe {
-	vertical-align: baseline!important
+.social svg {
+	width: 16px;
+	height: 16px;
 }
 .social-links li:after {
 	content: "\00a0\00a0"
-}
-#col.align_center .social span.tw iframe {
-	margin-right: -26px
 }
 #splash.show_flower {
 	background-repeat: no-repeat;

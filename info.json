@@ -137,15 +137,15 @@
 				"spin_color_front_pages": "#fff",
 				"button_color_bg": "#fff",
 				"button_color": "#000",
-				"input_border": "rgba(255,255,255,0.1)",
-				"input_border_active": "rgba(255,255,255,0.4)",
-				"input_color": "#909090",
-				"input_color_active": "#fff",
+				"input_border": "rgba(255,255,255,0.25)",
+				"input_border_active": "rgba(255,255,255,0.5)",
+				"input_color": "#000000",
+				"input_color_active": "#000000",
 				"input_placeholder": "rgba(255,255,255,0.44)",
 				"input_border_login": "rgba(255,255,255,0.15)",
 				"input_border_active_login": "rgba(255,255,255,0.3)",
-				"input_color_login": "#909090",
-				"input_color_active_login": "#fff",
+				"input_color_login": "#000000",
+				"input_color_active_login": "#000000",
 				"input_placeholder_login": "rgba(255,255,255,0.44)"
 			}
 		},
@@ -714,9 +714,10 @@
 						{ "label": "PT Mono", "value": "pt_mono" },
 						{ "label": "PT Sans", "value": "pt_sans" },
 						{ "label": "Roboto", "value": "roboto" },
-						{ "label": "Source Sans Pro", "value": "source" }
+						{ "label": "Source Sans Pro", "value": "source" },
+						{ "label": "Heebo", "value": "heebo" }
 					],
-					"value": "source"
+					"value": "heebo"
 				},
 				"Body": {
 					"collapse": true,
@@ -1904,20 +1905,59 @@
 					"control_first": true,
 					"reload_preview": true
 				},
-				"fb_href": {
-					"label": "Like link",
-					"type": "select",
-					"options": [
-						{ "label": "Site", "value": "site" },
-						{ "label": "Facebook profile", "value": "fbpage" }
-					],
-					"value": "site",
+				"instagram_url": {
+					"label": "Instagram URL",
+					"type": "string",
+					"value": "",
+					"validation": {
+						"type": "url",
+						"allow_empty": true
+					},
+					"reload_preview": true,
 					"dependencies": {
 						"evaluate": "all",
 						"conditions": [
 							{
 								"option": "show_social",
-								"equals": true
+								"equals": "true"
+							}
+						]
+					}
+				},
+				"facebook_url": {
+					"label": "Facebook URL",
+					"type": "string",
+					"value": "",
+					"validation": {
+						"type": "url",
+						"allow_empty": true
+					},
+					"reload_preview": true,
+					"dependencies": {
+						"evaluate": "all",
+						"conditions": [
+							{
+								"option": "show_social",
+								"equals": "true"
+							}
+						]
+					}
+				},
+				"fhpx_url": {
+					"label": "500px URL",
+					"type": "string",
+					"value": "",
+					"validation": {
+						"type": "url",
+						"allow_empty": true
+					},
+					"reload_preview": true,
+					"dependencies": {
+						"evaluate": "all",
+						"conditions": [
+							{
+								"option": "show_social",
+								"equals": "true"
 							}
 						]
 					}
