@@ -62,19 +62,24 @@
 						<koken:if data="settings.site_title_type" equals="text">
 							<koken:link to="front"><h1 class="site_title">{{ site.title }}</h1></koken:link>
 						<koken:else>
-							<koken:not empty="settings.site_title_symbol_name">
-								<div id="site_logo">
-									<div class="w">
-										<koken:link to="front" class="logo">
-											<svg role="img" class="custom_logo">
-												<use xlink:href="#{{ settings.site_title_symbol_name }}" alt="{{ site.title }}"></use>
-											</svg>
-										</koken:link>
-									</div>
-								</div>
-							<koken:else>
-								<span id="title_ph"></span>
-							</koken:not>
+                            <div id="site_logo">
+                                <div class="w">
+                                    <koken:link to="front" class="logo">
+                                        <div class="logo_large">
+                                            <svg role="img" class="custom_logo large">
+                                                <use xlink:href="#sacha-rueede-photography-logo" alt="{{ site.title }}"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="logo_small">
+                                            <span>SACHA</span>
+                                            <svg role="img" class="custom_logo small">
+                                                <use xlink:href="#sacha-rueede-photography-logo-small" alt="{{ site.title }}"></use>
+                                            </svg>
+                                            <span>RÜEDE</span>
+                                        </div>
+                                    </koken:link>
+                                </div>
+                            </div>
 						</koken:if>
 					</header>
 				</section>

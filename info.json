@@ -988,15 +988,6 @@
 					"type": "boolean",
 					"value": false
 				},
-				"site_title_symbol_name": {
-					"label": "Title Symbol Name",
-					"type": "string",
-					"value": "",
-					"reload_preview": true,
-					"dependencies": {
-						"evaluate": "all"
-					}
-				},
 				"site_title_img_scale_mobile": {
 					"label": "Mobile width",
 					"type": "slider",
