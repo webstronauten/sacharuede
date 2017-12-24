@@ -71,7 +71,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 700;
+	font-weight: 100;
 	color: $headers_color;
 	text-transform: $h_transform
 }
@@ -85,7 +85,7 @@ h6 a {
 	color: inherit
 }
 h1 {
-	font-size: [$h1_size]px
+	font-size: [$h1_size]px;
 }
 h1,
 h1 time {
@@ -610,7 +610,8 @@ nav a:hover {
 	text-decoration: none
 }
 nav a.k-nav-current {
-	color: $color_nav_current!important
+	font-weight: 300;
+	color: $color_nav_current !important;
 }
 .k-search input[type=search] {
 	width: 85%;
@@ -704,7 +705,8 @@ span.img_wrap {
 }
 figcaption {
 	clear: both;
-	margin: 1em 0 0
+	margin: 4px 0 0;
+	font-weight: 100;
 }
 .cap_width {
 	width: [$list_cap_width]%
@@ -966,18 +968,24 @@ article header .item_meta {
 	padding: 0;
 	margin: 0
 }
-article header h1 {
-	margin: 1em 0 0
-}
 article h1,
 article h2,
 article h3 {
 	margin: 0 0 4px
 }
+article h1 {
+	margin: 0 0 32px;
+}
 article ul {
-	list-style: disc;
+	list-style: square;
 	list-style-position: inside;
 	margin: 0 0 1em
+}
+article ul li {
+	margin-left: 2px;
+}
+article ul li span {
+	margin-left: -8px;
 }
 article ol {
 	list-style: decimal;
@@ -1350,8 +1358,8 @@ body.pos_right #col.align_right .kloading {
 	padding-left: 75px
 }
 .mob ul li a.k-nav-current {
+	font-weight: 300;
 	color: $mob_color_current;
-	font-weight: 700
 }
 #mob-bttn-row {
 	display: none;
