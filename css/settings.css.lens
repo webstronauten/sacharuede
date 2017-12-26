@@ -551,9 +551,12 @@ footer.main.align_right {
 	width: 140px;
 	height: auto;
 	color: #fff;
+	transition: color .3s;
+	will-change: color;
 }
 .custom_logo:hover {
 	color: #ff7800;
+	transition: color .3s;
 }
 #site_logo {
 	display: table;
@@ -1028,6 +1031,9 @@ article blockquote {
 .k-content-embed:not(:first-child) {
 	margin: 2em 0
 }
+figure.k-content-embed:not(:first-child) {
+	margin-top: 0
+}
 article .k-content-text {
 	margin: 0;
 	padding: [$essay_media_inset_t]px [$essay_media_inset_h]px [$essay_media_inset_b]px;
@@ -1047,6 +1053,19 @@ article .k-content-caption {
 }
 article .k-video {
 	margin: 0 auto
+}
+.youtube-container {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+}
+.youtube-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 div#feat-essays {
 	overflow: auto;
@@ -1495,6 +1514,39 @@ body.pos_right.k-lens-essays .main_wrap {
 .social-links li:after {
 	content: "\00a0\00a0"
 }
+.photo-container {
+	position: relative;
+	padding-bottom: 1em;
+	min-height: 200px;
+	color: #fff;
+}
+.photo-container .k-content {
+	overflow: hidden;
+}
+.photo-container img {
+	transition: all .5s;
+	will-change: transform;
+}
+.photo-container:hover img {
+	transform: scale(1.05);
+	transition: all .5s;
+}
+.photo-captions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-end;
+	position: absolute;
+	bottom: calc(0.5em + 12px);
+	right: calc(0.5em + 4px);
+	pointer-events: none;
+}
+.photo-caption {
+	margin: 2px 0;
+	padding: 8px 16px;
+	background-color: rgba(0,0,0,0.6);
+}
+
 #splash.show_flower {
 	background-repeat: no-repeat;
 	background-position: 50%;
