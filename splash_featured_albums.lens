@@ -37,7 +37,8 @@
 		<koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div></koken:if>
 	</koken:if>
 
-	<koken:pulse jsvar="splashy" group="lens_splash_featured_albums" width="100%" height="100%" crop="fill" link_to="album" speed="5" transition_duration="0.8" fallbacktext="No featured albums found. Assign some in the Library." />
+	<koken:pulse jsvar="splashy" group="lens_splash_featured_albums" width="100%" height="100%" crop="fill"
+				 link_to="album" speed="5" transition_duration="0.8" fallbacktext="No featured albums found. Assign some in the Library." />
 
 </div>
 

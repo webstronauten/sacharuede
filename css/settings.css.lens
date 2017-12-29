@@ -73,7 +73,7 @@ h5,
 h6 {
 	font-weight: 100;
 	color: $headers_color;
-	text-transform: $h_transform
+	text-transform: $h_transform;
 }
 h1 a,
 h2 a,
@@ -548,8 +548,8 @@ footer.main.align_right {
 	display: none;
 }
 .custom_logo {
-	width: 140px;
-	height: auto;
+	width: 105px;
+	height: 105px;
 	color: #fff;
 	transition: color .3s;
 	will-change: color;
@@ -985,7 +985,7 @@ article ul {
 	margin: 0 0 1em
 }
 article ul li {
-	margin-left: 2px;
+	margin-left: 10px;
 }
 article ul li span {
 	margin-left: -8px;
@@ -994,6 +994,9 @@ article ol {
 	list-style: decimal;
 	list-style-position: inside;
 	margin: 0 0 1em
+}
+article iframe {
+	margin: 0 0 1em;
 }
 article footer {
 	margin: 1em 0;
@@ -1547,12 +1550,34 @@ body.pos_right.k-lens-essays .main_wrap {
 	background-color: rgba(0,0,0,0.6);
 }
 
+
 #splash.show_flower {
 	background-repeat: no-repeat;
 	background-position: 50%;
 	background-size: 16px 16px;
 	background-image: url(css/$style/spinner.gif)
 }
+
+#splash .k-pulse {
+	display: block;
+}
+@media (orientation : landscape) {
+	#splash .k-pulse {
+		display: none;
+	}
+	#splash .spinner_pos + .k-pulse {
+		display: block;
+	}
+}
+@media (orientation : portrait) {
+	#splash .k-pulse {
+		display: block;
+	}
+	#splash .spinner_pos + .k-pulse {
+		display: none;
+	}
+}
+
 body.k-lens-splash,
 body.k-lens-splash_featured_albums,
 html.k-lens-splash,
