@@ -25,38 +25,106 @@
 	</koken:head>
 
 	<div id="main" class="palign_{{ settings.page_align }} strip_{{ settings.show_strip }}">
-
 		<div id="main_wrap" class="calign_{{ settings.content_align }}">
-
-			<article>
+			<article class="topic-count-{{ page.topics.count }}">
 				<koken:if condition="{{ page.topics.count }} >= 1">
-					<header>
-						<h1>{{ page.title }}</h1>
-					</header>
+                    <header class="js-sm-fixed sm-fixed">
+                        <h1>{{ page.title }}</h1>
+                    </header>
+                    <header class="xs-hidden sm-visible md-visible lg-visible">
+                        <h1>{{&nbsp;}}</h1>
+                    </header>
 				</koken:if>
 
 				<main>
 					{{ page.content }}
 				</main>
-
-				<!--
-				<koken:topics>
-					<p id="page_topics" class="meta">
-						{{ language.topic }}:
-						<koken:loop separator=", ">
-							<koken:link title="View {{ album.title }}">
-								{{ album.title }}
-							</koken:link>
-						</koken:loop>
-					</p>
-				</koken:topics>
-				-->
-
 			</article>
-
 		</div>
-
 	</div>
+
+	<script>
+        function isLargerThanSpecified($el) {
+            var query = "";
+            if($el.hasClass("js-sm-fixed"))
+                query = "(min-width: 48em)";
+            else if($el.hasClass("js-md-fixed"))
+                query = "(min-width: 64em)";
+            else if($el.hasClass("js-lg-fixed"))
+                query = "(min-width: 75em)";
+
+            var media = window.matchMedia(query);
+            return media.matches;
+        }
+
+        function updateFixedElements() {
+            scrollToTop(0);
+
+            $(".js-sm-fixed").each(function() {
+                updateFixedElement($(this).get(0));
+            });
+        }
+
+        function updateFixedElement(el) {
+            var $el = $(el);
+
+            var $fixedContainer = $el.is(".js-sm-fixed,.js-md-fixed,.js-lg-fixed")
+                ? $el : $el.parents(".js-sm-fixed, .js-md-fixed, .js-lg-fixed");
+
+            if($fixedContainer.length) {
+                //Reset to make sure that previous calculations
+                //don't apply when e.g. window was resized
+                $fixedContainer.removeAttr("style");
+
+                if(isLargerThanSpecified($fixedContainer)) {
+                    var bounds = $fixedContainer.get(0).getBoundingClientRect();
+
+                    $fixedContainer
+                        .css("left", bounds.left + "px")
+                        .css("top", bounds.top + "px")
+                        .css("width", $fixedContainer.width() + "px")
+                        .css("position", "fixed");
+                }
+            }
+        }
+
+        function scrollToTop(animationTime) {
+            return;
+
+            if(isLargerThanSpecified() && $(".js-sm-fixed,.js-md-fixed,.js-lg-fixed").length) {
+                $(".k-lens-page").animate({
+                    scrollTop: 0
+                }, animationTime || 1000);
+            }
+        }
+
+        $(document).ready(scrollToTop);
+
+		$(window).on("k-image-loaded", function(e) {
+            //console.log("k-image-loaded", e);
+
+            updateFixedElement(e.target);
+
+            $(".photo-container").each(function() {
+                $(this).css("flex-basis", "initial");
+            });
+        });
+		$(window).on("k-resize", function() {
+            console.log("k-resize");
+
+            updateFixedElements();
+
+            $(".photo-container").each(function() {
+                $(this).removeAttr("style");
+            });
+
+            setTimeout(function() {
+                $(".photo-container").each(function() {
+                    $(this).css("flex-basis", "initial");
+                });
+            }, 0);
+        });
+	</script>
 
 </koken:load>
 
