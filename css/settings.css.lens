@@ -965,7 +965,8 @@ ul.k-mosaic.edge>li {
 article {
 	margin-bottom: 2em;
 }
-article.topic-count-1 {
+article.topic-count-1,
+article .row.limited-width {
 	max-width: 74em;
 }
 article header {
