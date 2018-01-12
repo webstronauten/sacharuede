@@ -9,5 +9,14 @@
 
 </body>
 
+	<script>
+        $.urlParam = function (name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+                .exec(window.location.href);
+
+            return results ? results[1] || undefined : undefined;
+        }
+	</script>
+
 </html>
 </koken:if>

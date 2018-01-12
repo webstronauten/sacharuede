@@ -30,11 +30,20 @@
 	<koken:asset file="js/environment.js" />
 	<koken:asset file="js/jquery.smooth-scroll.min.js" />
 	<koken:asset file="js/jquery.sidr.min.js" />
+	<koken:asset file="js/jquery.validate.min.js" />
+	<koken:asset file="js/jquery.validate.messages_de.min.js" />
 	<koken:asset file="pillar.js" common="true" />
 	<koken:asset file="jquery.pjax.js" common="true" />
 	<koken:asset file="jquery.pjax-transition.js" common="true" />
 	<koken:asset file="share.js" common="true" />
 	<koken:asset file="js/madison.js" />
+
+	<script type="text/javascript" src="//cdn.emailjs.com/dist/email.min.js"></script>
+	<script type="text/javascript">
+        (function(){
+            emailjs.init("user_9FmHAIt7iafagmBHsb1qa");
+        })();
+	</script>
 
 	<script>
 		Madison.nestedNav = '{{ settings.nav_nested }}';

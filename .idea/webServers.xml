@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="981a2840-dff2-4a3e-9aa8-eb8dbf8dd073" name="sacharuede Koken Theme" url="http://sacharüede.ch">
-        <fileTransfer host="185.117.169.244" port="21">
+      <webServer id="981a2840-dff2-4a3e-9aa8-eb8dbf8dd073" name="sacharuede Koken Theme" url="http://sacharuede.ch">
+        <fileTransfer host="sacharuede.ch" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

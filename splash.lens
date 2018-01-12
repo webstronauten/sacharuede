@@ -25,7 +25,7 @@
 
 </koken:load>
 
-<div id="splash" class="bleed_{{ settings.splash_bleed }} spin_{{ settings.show_content_load_spin }}">
+<div id="splash" class="bleed_{{ settings.splash_bleed }} spin_{{ settings.show_content_load_spin }} handle-device-orientation">
 	<koken:if true="settings.show_content_load_spin">
 		<koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div></koken:if>
 	</koken:if>
@@ -35,6 +35,12 @@
 </div>
 
 <script>
+    $(document).ready(function() {
+        var isInIframe = window.location != window.parent.location;
+        if(isInIframe)
+        	$("#splash").removeClass("handle-device-orientation");
+	});
+
 splashy.on('waiting', function(e) {
 	var settings = {{ settings.to_json fields="show_content_load_spin,spin_style" }};
 	if (settings.show_content_load_spin) {

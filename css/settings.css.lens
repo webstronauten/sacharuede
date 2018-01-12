@@ -195,6 +195,13 @@ input[type=reset]:disabled,
 input[type=submit]:disabled {
 	opacity: .5
 }
+.button:hover, .button:focus,
+button:hover, button:focus,
+input[type=button]:hover, input[type=button]:focus,
+input[type=reset]:hover, input[type=reset]:focus,
+input[type=submit]:hover, input[type=submit]:focus {
+	color: #ff7800;
+}
 input[type=email],
 input[type=number],
 input[type=password],
@@ -258,7 +265,7 @@ input[type=checkbox],
 input[type=file],
 input[type=radio],
 select {
-	margin: 0 0 1rem
+	margin: 0 0 1rem;
 }
 input[type=checkbox]+label,
 input[type=radio]+label {
@@ -282,6 +289,20 @@ textarea {
 		width: 100%
 	}
 }
+.nowrap {
+	white-space: nowrap;
+}
+.k-contact-form-checkbox-field {
+	margin: 0;
+}
+.k-contact-form-checkbox-field label {
+	display: flex;
+	align-items: baseline;
+	margin: 0;
+}
+.k-contact-form-checkbox-field label input {
+	margin-right: 8px;
+}
 .k-contact-form-success {
 	border-top: 1px solid $color_hr;
 	border-bottom: 1px solid $color_hr;
@@ -293,8 +314,15 @@ textarea {
 	margin-right: 6px
 }
 .k-contact-form-required-field label:after {
-	content: "*";
-	color: #ff7800;
+	content: "";
+	display: inline-block;
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	margin-left: 4px;
+	margin-top: 6px;
+	vertical-align: top;
+	background: #ff7800;
 }
 .k-content-form-processing {
 	opacity: .5
@@ -527,7 +555,7 @@ footer.main.align_right {
 	position: fixed;
 	height: 100%;
 	top: 0;
-	overflow: auto;
+	overflow: visible;
 	font-size: [$col_text_size]px;
 	color: $col_text_color;
 	width: [$col_width]px;
@@ -967,7 +995,7 @@ article {
 }
 article.topic-count-1,
 article .row.limited-width {
-	max-width: 74em;
+	max-width: 82em;
 }
 article header {
 	width: 100%;
@@ -978,7 +1006,7 @@ article.topic-count-1 header {
 }
 article.topic-count-1 header h1 {
 	margin: 0 0 16px 0;
-	padding: 16px 0 16px 0;
+	padding: 32px 0 16px 0;
 	background-color: $background_color;
 }
 
@@ -1465,11 +1493,6 @@ body.k-lens-set #main_wrap,
 body.k-lens-sets #main_wrap {
 	max-width: [$albums_max_col_width]px
 }
-body.k-lens-album #main_wrap,
-body.k-lens-archive-contents #main_wrap,
-body.k-lens-contents #main_wrap {
-	max-width: [$contents_max_col_width]px
-}
 body.k-lens-favorites #main_wrap,
 body.k-lens-index #main_wrap {
 	max-width: [$index_max_col_width]px
@@ -1543,6 +1566,9 @@ body.pos_right.k-lens-essays .main_wrap {
 .photo-container .k-content {
 	overflow: hidden;
 }
+.photo-container.inactive {
+	pointer-events: none;
+}
 .photo-container img {
 	transition: all .5s;
 	will-change: transform;
@@ -1567,7 +1593,15 @@ body.pos_right.k-lens-essays .main_wrap {
 	padding: 8px 16px;
 	background-color: rgba(0,0,0,0.6);
 }
-
+.horizontal-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 1rem;
+}
+.horizontal-flex > * {
+	margin: 0 0.5rem 0 0;
+}
 
 #splash.show_flower {
 	background-repeat: no-repeat;
@@ -1580,18 +1614,18 @@ body.pos_right.k-lens-essays .main_wrap {
 	display: block;
 }
 @media (orientation : landscape) {
-	#splash .k-pulse {
+	#splash.handle-device-orientation .k-pulse {
 		display: none;
 	}
-	#splash .spinner_pos + .k-pulse {
+	#splash.handle-device-orientation .spinner_pos + .k-pulse {
 		display: block;
 	}
 }
 @media (orientation : portrait) {
-	#splash .k-pulse {
+	#splash.handle-device-orientation .k-pulse {
 		display: block;
 	}
-	#splash .spinner_pos + .k-pulse {
+	#splash.handle-device-orientation .spinner_pos + .k-pulse {
 		display: none;
 	}
 }
@@ -1833,6 +1867,10 @@ body.k-lens-splash_featured_albums .k-note-pulse {
 		color: $scroll_color_hover;
 		border: 1px solid $scroll_color_hover_border;
 		background: $scroll_color_hover_bg
+	}
+
+	.horizontal-flex > * {
+		margin-right: 1rem;
 	}
 }
 @media only screen and (min-width: 1280px) {
