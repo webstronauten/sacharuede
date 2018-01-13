@@ -38,6 +38,7 @@
 			<koken:if true="settings.show_album_info">
 
 				<header class="index anim_{{ settings.album_anim }} cap_width">
+					<!--
 					<h1>
 						{{ album.title }}
 						<koken:filtered>
@@ -51,6 +52,7 @@
 							</span>
 						</koken:filtered>
 					</h1>
+					-->
 					{{ album.description paragraphs="true" }}
 					<koken:if true="settings.show_album_tagscats">
 						<koken:categories>
