@@ -615,7 +615,6 @@ h1.site_title {
 }
 header.index {
 	position: relative;
-	padding-bottom: 2em;
 	clear: both
 }
 header.index.anim_on {

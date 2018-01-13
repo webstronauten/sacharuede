@@ -40,7 +40,7 @@
 				<koken:if exists="album">
 					<header class="index anim_{{ settings.album_anim }} cap_width">
 						<h1>
-							{{ album.title }}
+							Portfolio – {{ album.title }}
 							<koken:if true="settings.show_album_dl">
 								<koken:album_download>
 										&nbsp;
