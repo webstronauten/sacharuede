@@ -70,7 +70,7 @@
         });
         $(window).on("k-resize", function() {
             //Mark navigation element as current on certain pages
-			console.log(window.location.pathname);
+
             if(window.location.pathname.indexOf("albums/portfolio") !== -1)
                 $(".k-nav-list li a[href*='portfolio']").addClass("k-nav-current");
             else if(window.location.pathname.indexOf("workshop") !== -1)
