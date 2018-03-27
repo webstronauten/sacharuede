@@ -1,0 +1,92 @@
+<koken:not true="pjax">
+			</div> <!-- close pjax-container -->
+
+		</div> <!-- close #target -->
+
+	</div>	<!-- close container -->
+
+	<footer class="main align_{{ settings.col_align }}"></footer>
+</body>
+
+	<script>
+        $.urlParam = function (name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+                .exec(window.location.href);
+
+            return results ? results[1] || undefined : undefined;
+        };
+
+        function isLargerThanSpecified($el) {
+            var query = "";
+            if($el.hasClass("js-sm-fixed"))
+                query = "(min-width: 48em)";
+            else if($el.hasClass("js-md-fixed"))
+                query = "(min-width: 64em)";
+            else if($el.hasClass("js-lg-fixed"))
+                query = "(min-width: 75em)";
+
+            var media = window.matchMedia(query);
+            return media.matches;
+        }
+
+        function updateFixedElements() {
+            $(".js-sm-fixed,.js-md-fixed,.js-lg-fixed").each(function() {
+                updateFixedElement($(this).get(0));
+            });
+        }
+
+        function updateFixedElement(el) {
+            var $el = $(el);
+
+            var $fixedContainer = $el.is(".js-sm-fixed,.js-md-fixed,.js-lg-fixed")
+                ? $el : $el.parents(".js-sm-fixed, .js-md-fixed, .js-lg-fixed");
+
+            if($fixedContainer.length) {
+                //Reset to make sure that previous calculations
+                //don't apply when e.g. window was resized
+                $fixedContainer.removeAttr("style");
+
+                if(isLargerThanSpecified($fixedContainer)) {
+                    var bounds = $fixedContainer.get(0).getBoundingClientRect();
+
+                    $fixedContainer
+                        .css("left", bounds.left + "px")
+                        .css("top", Math.max(bounds.top, 32) + "px")
+                        .css("width", $fixedContainer.width() + "px")
+                        .css("position", "fixed");
+                }
+            }
+        }
+
+        $(document).ready(updateFixedElements);
+
+        $(window).on("k-image-loaded", function(e) {
+            updateFixedElement(e.target);
+
+            $(".photo-container").each(function() {
+                $(this).css("flex-basis", "initial");
+            });
+        });
+        $(window).on("k-resize", function() {
+            //Mark navigation element as current on certain pages
+
+            if(window.location.pathname.indexOf("albums/portfolio") !== -1)
+                $(".k-nav-list li a[href*='portfolio']").addClass("k-nav-current");
+            else if(window.location.pathname.indexOf("workshop") !== -1)
+                $(".k-nav-list li a[href*='workshops']").addClass("k-nav-current");
+
+            updateFixedElements();
+
+            $(".photo-container").each(function() {
+                $(this).removeAttr("style");
+            });
+
+            setTimeout(function() {
+                $(".photo-container").each(function() {
+                    $(this).css("flex-basis", "initial");
+                });
+            }, 0);
+        });
+	</script>
+</html>
+</koken:if>
