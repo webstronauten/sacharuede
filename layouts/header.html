@@ -129,7 +129,7 @@
                                 <div class="social">
                                     <koken:not empty="settings.instagram_url">
                                         <div class="instagram">
-                                            <a href="{{ settings.instagram_url }}" title="Sacha Rüede auf Instagram">
+                                            <a href="{{ settings.instagram_url }}" target="_blank" title="Sacha Rüede auf Instagram">
                                                 <svg role="img">
                                                     <use xlink:href="#instagram-logo"></use>
                                                 </svg>
@@ -137,11 +137,11 @@
                                         </div>
                                     </koken:not>
 
-                                    <koken:not empty="settings.instagram_url">
+                                    <koken:not empty="settings.facebook_url">
                                         <div class="facebook">
-                                            <a href="{{ settings.facebook_url }}" title="Sacha Rüede auf Facebook">
+                                            <a href="{{ settings.facebook_url }}" target="_blank" title="Sacha Rüede auf Facebook">
                                                 <svg role="img">
-                                                    <use xlink:href="#facebook-logo" ></use>
+                                                    <use xlink:href="#facebook-logo"></use>
                                                 </svg>
                                             </a>
                                         </div>
@@ -149,13 +149,21 @@
 
                                     <koken:not empty="settings.fhpx_url">
                                         <div class="fhpx">
-                                            <a href="{{ settings.fhpx_url }}" title="Sacha Rüede auf 500px">
+                                            <a href="{{ settings.fhpx_url }}" target="_blank" title="Sacha Rüede auf 500px">
                                                 <svg role="img">
                                                     <use xlink:href="#500px-logo"></use>
                                                 </svg>
                                             </a>
                                         </div>
-                                    </koken:not>
+									</koken:not>
+									
+									<div class="webstronaut">
+										<a href="https://webstronaut.ch" target="_blank" title="Logo und Design von webstronaut.ch">
+											<svg role="img">
+												<use xlink:href="#webstronaut-logo"></use>
+											</svg>
+										</a>
+									</div>
                                 </div>
 							</koken:if>
 						</section>
