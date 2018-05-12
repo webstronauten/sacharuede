@@ -1,7 +1,20 @@
 <section id="nav_first">
     <koken:navigation nested="{{ settings.nav_nested }}" />
-    <br class="xs-hidden sm-visible md-visible lg-visible xl-visible"/>
+    <br class="xs-hidden sm-visible md-visible lg-visible xl-visible" />
     <koken:include file="layouts/social.html" />
+    <section>
+        <a href="/pages/impressum"
+           class="imprint-privacy-policy">
+            Impressum &
+            <br> Datenschutz
+        </a>
+    </section>
 </section>
-<section id="nav_second"><koken:navigation group="second" nested="{{ settings.nav_nested }}" /></section>
-<section id="nav_third"><koken:navigation group="third" nested="{{ settings.nav_nested }}" /></section>
+<section id="nav_second">
+    <koken:navigation group="second"
+                      nested="{{ settings.nav_nested }}" />
+</section>
+<section id="nav_third">
+    <koken:navigation group="third"
+                      nested="{{ settings.nav_nested }}" />
+</section>
