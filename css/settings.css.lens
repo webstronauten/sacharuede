@@ -696,8 +696,8 @@ nav a.k-nav-current {
 }
 .imprint-privacy-policy {
   position: absolute;
-  width: 100%;
   bottom: 2rem;
+  width: 100%;
   line-height: 13px;
   text-transform: uppercase;
   text-decoration: none;
@@ -707,8 +707,16 @@ nav a.k-nav-current {
   font-size: 13px;
   line-height: 14px;
 }
+@media (orientation: landscape) {
+  .imprint-privacy-policy {
+    position: relative;
+    bottom: 1rem;
+  }
+}
 @media only screen and (min-width: 48em) {
   .imprint-privacy-policy {
+    position: absolute;
+    bottom: 2rem;
     left: 0;
     text-align: center;
     font-size: inherit;
