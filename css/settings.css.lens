@@ -607,6 +607,12 @@ footer.main.align_right {
   text-align: $col_align;
   background: $nav_bg_color;
   z-index: 100;
+  overflow-y: auto;
+}
+@media only screen and (min-height: 550px) {
+  #col {
+    overflow-y: visible;
+  }
 }
 #col a {
   text-decoration: none;
@@ -695,33 +701,52 @@ nav a.k-nav-current {
   color: $color_nav_current !important;
 }
 .imprint-privacy-policy {
-  position: absolute;
-  bottom: 2rem;
-  width: 100%;
-  line-height: 13px;
+  display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
+  text-align: center;
 
-  left: 20px;
-  text-align: left;
+  position: relative;
+  top: 0.2rem;
   font-size: 13px;
-  line-height: 14px;
+  line-height: 13px;
 }
-@media (orientation: landscape) {
+/* */
+@media only screen and (max-width: 959px) {
   .imprint-privacy-policy {
-    position: relative;
-    bottom: 1rem;
+    left: 20px;
+    top: auto;
+    bottom: 0.6rem;
+    text-align: left;
   }
 }
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: 768px) {
+  .imprint-privacy-policy {
+    text-align: center;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    line-height: 14px;
+  }
+}
+@media only screen and (min-height: 540px) {
   .imprint-privacy-policy {
     position: absolute;
+    width: 100%;
+    top: auto;
     bottom: 2rem;
     left: 0;
+    line-height: 14px;
     text-align: center;
-    font-size: inherit;
   }
 }
+@media only screen and (max-width: 959px) and (orientation: portrait) {
+  .imprint-privacy-policy {
+    left: 20px;
+    text-align: left;
+  }
+}
+
 .k-search input[type="search"] {
   width: 85%;
   max-width: 160px;
